@@ -1,0 +1,17 @@
+syntax = "proto3";
+package ru.arsentiev.grpc;
+
+
+message HelloRequest {
+  string name = 1;
+  repeated string hobbies = 2;//список
+}
+
+message HelloResponse {
+  string greeting = 1;
+}
+
+service HelloService {
+  //тут логически определенные rpc-методы
+  rpc hello(HelloRequest) returns (stream HelloResponse);
+}
